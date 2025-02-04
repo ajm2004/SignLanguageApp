@@ -1,0 +1,42 @@
+Model Name: InceptionV3
+Dataset Path: C:/Users/User/OneDrive/Documents/SignLanguageApp/SLangDataset/LMARK_merged_data_est
+Train-Test Split: Training (80%) | Validation (20%)
+
+Evaluation Metrics:
+Accuracy: 0.9840
+Precision: 0.9847
+Recall: 0.9840
+F1 Score: 0.9840
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           A       0.99      0.96      0.97       240
+           B       1.00      1.00      1.00       240
+           C       0.99      0.99      0.99       240
+           D       0.98      0.90      0.94       240
+           E       0.99      1.00      1.00       240
+           F       1.00      1.00      1.00       240
+           G       0.99      1.00      0.99       240
+           H       1.00      0.98      0.99       240
+           I       1.00      0.97      0.98       240
+           J       1.00      1.00      1.00       240
+           K       0.97      0.98      0.98       240
+           L       0.89      1.00      0.94       240
+           M       1.00      0.96      0.98       240
+           N       0.96      0.99      0.97       240
+           O       1.00      0.99      1.00       240
+           P       1.00      1.00      1.00       240
+           Q       1.00      1.00      1.00       240
+           R       1.00      0.99      0.99       240
+           S       0.98      1.00      0.99       240
+           T       0.96      1.00      0.98       240
+           U       0.97      1.00      0.98       240
+           V       1.00      0.97      0.98       240
+           W       0.99      1.00      0.99       240
+           X       0.98      0.93      0.95       240
+           Y       1.00      1.00      1.00       240
+
+    accuracy                           0.98      6000
+   macro avg       0.98      0.98      0.98      6000
+weighted avg       0.98      0.98      0.98      6000
