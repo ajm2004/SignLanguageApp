@@ -1,0 +1,42 @@
+Model Name: BasicCNN
+Dataset Path: C:/Users/User/OneDrive/Documents/SignLanguageApp/SLangDataset/LMARK_merged_data_est
+Train-Test Split: Training (80%) | Validation (20%)
+
+Evaluation Metrics:
+Accuracy: 0.9470
+Precision: 0.9501
+Recall: 0.9470
+F1 Score: 0.9469
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           A       0.99      0.86      0.92       240
+           B       1.00      0.91      0.95       240
+           C       0.98      0.98      0.98       240
+           D       0.98      0.99      0.99       240
+           E       0.93      0.93      0.93       240
+           F       1.00      1.00      1.00       240
+           G       0.82      0.97      0.89       240
+           H       0.97      0.83      0.90       240
+           I       0.92      0.97      0.94       240
+           J       0.99      0.99      0.99       240
+           K       0.98      0.83      0.90       240
+           L       0.98      0.97      0.98       240
+           M       0.94      0.89      0.91       240
+           N       0.91      0.94      0.93       240
+           O       0.99      0.99      0.99       240
+           P       0.91      1.00      0.95       240
+           Q       0.99      0.99      0.99       240
+           R       0.93      0.89      0.91       240
+           S       0.95      0.95      0.95       240
+           T       0.82      0.98      0.89       240
+           U       0.96      0.97      0.96       240
+           V       0.92      0.99      0.96       240
+           W       0.95      0.99      0.97       240
+           X       0.97      0.85      0.90       240
+           Y       0.98      1.00      0.99       240
+
+    accuracy                           0.95      6000
+   macro avg       0.95      0.95      0.95      6000
+weighted avg       0.95      0.95      0.95      6000
