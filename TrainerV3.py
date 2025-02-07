@@ -203,7 +203,8 @@ class ASLTrainerApp:
         self.status_label.config(text="Training complete. Saving model and training details...")
 
         # Set the folder path explicitly where the model is to be saved.
-        model_dir = r"C:\Users\User\OneDrive\Documents\SignLanguageApp\TrainedBinary2Model"
+        model_dir = "TrainedBinary2Model"
+        os.makedirs(model_dir, exist_ok=True)
         print("Attempting to create or access folder:", model_dir)
         try:
             os.makedirs(model_dir, exist_ok=True)
