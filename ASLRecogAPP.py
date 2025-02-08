@@ -82,6 +82,8 @@ current_prediction = ""   # the letter predicted by the classifier
 prediction_sum = np.zeros(len(labels))
 prediction_count = 0
 last_avg_time = time.time()
+# Global variable for moving average buffer
+prediction_buffer = []  # Each element: (timestamp, prediction_array)
 
 # Variables for delaying predictions and key presses
 last_prediction_update_time = 0
@@ -410,9 +412,6 @@ root.bind("<BackSpace>", on_backspace)
     
 #     root.after(10, update_frame)
 
-# Global variable for moving average buffer
-prediction_buffer = []  # Each element: (timestamp, prediction_array)
-
 def update_frame():
     global current_prediction, last_prediction_update_time, prediction_buffer
     success, img = cap.read()
@@ -532,6 +531,10 @@ def update_frame():
         landmarks_label.configure(image=imgCrop_tk)
     
     root.after(10, update_frame)
+
+
+
+
 
 
 
