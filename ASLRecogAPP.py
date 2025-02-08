@@ -56,7 +56,9 @@ model_options = {
     "MobileNetV2 (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary2Model/MobileNetV2_model.h5",
     "VGG16 (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary2Model/VGG16_model.h5",
     "DenseNet121 (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary2Model/DenseNet121_model.h5",
-    "V3_VGG16 (T3)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary3Model/VGG16_model.h5"
+    "V3_VGG16 (T3)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary3Model/VGG16_model.h5",
+    "V4_VGG16 (T4)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary4Model/VGG16_model.h5",
+    "v4_MobileNetV2 (T4)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary4Model/MobileNetV2_model.h5"
 }
 
 # Initially load the default model
@@ -111,7 +113,7 @@ root.grid_rowconfigure(0, weight=1)
 # We'll use a grid layout with rows for header, options, image displays, info, and buttons
 
 # Header
-header_label = tk.Label(right_frame, text="Sign Language Recognition", font=("Helvetica", 20, "bold"),
+header_label = tk.Label(right_frame, text="ASL Fingerspelling Recognition", font=("Helvetica", 20, "bold"),
                         bg="#1F1F1F", fg="#00FFFF")
 header_label.grid(row=0, column=0, columnspan=2, pady=(10, 5), sticky="ew")
 
@@ -238,6 +240,14 @@ history_text = scrolledtext.ScrolledText(right_frame, width=40, height=8,
 history_text.grid(row=5, column=0, columnspan=2, padx=10, pady=10, sticky="nsew")
 history_text.configure(state='disabled')
 
+instructions_label = tk.Label(
+    right_frame,
+    text="1. Enter word: Space Bar  |  2. Delete last character: Backspace",
+    font=("Helvetica", 10),
+    bg="#1F1F1F",
+    fg="#AAAAAA"
+)
+instructions_label.grid(row=6, column=0, columnspan=2, padx=10, pady=(0, 10), sticky="ew")
 # ---------------------------
 # Main Camera Feed Display (Left Panel)
 # ---------------------------
@@ -280,9 +290,6 @@ def on_backspace(event):
 root.bind("<space>", on_space_press)
 root.bind("<BackSpace>", on_backspace)
 
-# ---------------------------
-# Update Loop for Video Frames
-# ---------------------------
 def update_frame():
     global current_prediction, last_prediction_update_time
     success, img = cap.read()
@@ -349,14 +356,20 @@ def update_frame():
             if current_time - last_prediction_update_time >= prediction_update_delay:
                 if prediction[index] > 0.60 and 0 <= index < len(labels):
                     letter = labels[index]
+                    prob = prediction[index]  # probability value
                     current_prediction = letter
                     last_prediction_update_time = current_time
-                    cv2.rectangle(imgOutput, (x - offset, y - offset - 50),
-                                  (x - offset + 90, y - offset - 50 + 50), (255, 0, 255), cv2.FILLED)
-                    cv2.putText(imgOutput, letter, (x, y - 26),
-                                cv2.FONT_HERSHEY_COMPLEX, 1.7, (255, 255, 255), 2)
-                    cv2.rectangle(imgOutput, (x - offset, y - offset),
-                                  (x + w + offset, y + h + offset), (255, 0, 255), 4)
+                    # Draw a pink box in the top-left of the hand bounding box.
+                    box_x = x - offset
+                    box_y = y - offset - 50
+                    box_width = 150  # Increase the width to fit probability text
+                    box_height = 50
+                    cv2.rectangle(imgOutput, (box_x, box_y), (box_x + box_width, box_y + box_height), (255, 0, 255), cv2.FILLED)
+                    # Prepare the text with letter and probability (formatted to two decimals).
+                    text = f"{letter}: {prob:.2f}"
+                    # Adjust text position and font scale as needed.
+                    cv2.putText(imgOutput, text, (box_x + 5, box_y + 35), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 2)
+                    cv2.rectangle(imgOutput, (x - offset, y - offset), (x + w + offset, y + h + offset), (255, 0, 255), 4)
                 else:
                     current_prediction = ""
                     last_prediction_update_time = current_time
@@ -376,7 +389,7 @@ def update_frame():
     main_image_label.imgtk = img_tk
     main_image_label.configure(image=img_tk)
     
-    # Force images to be resized to the fixed dimensions
+    # Force images to be resized to the fixed dimensions for right-panel displays
     if imgWhite_for_display is not None:
         imgWhite_rgb = cv2.cvtColor(imgWhite_for_display, cv2.COLOR_GRAY2RGB)
         imgWhite_pil = Image.fromarray(imgWhite_rgb).resize((FIXED_WIDTH, FIXED_HEIGHT), resample_method)
@@ -392,6 +405,7 @@ def update_frame():
         landmarks_label.configure(image=imgCrop_tk)
     
     root.after(10, update_frame)
+
 
 # ---------------------------
 # Clean up on exit

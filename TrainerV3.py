@@ -155,11 +155,11 @@ class ASLTrainerApp:
         datagen = ImageDataGenerator(
             rescale=1.0/255,
             validation_split=0.2,
-            rotation_range=15,
+            rotation_range=5,
             width_shift_range=0.2,
             height_shift_range=0.2,
             zoom_range=0.2,
-            horizontal_flip=True
+            horizontal_flip=False
         )
 
         train_generator = datagen.flow_from_directory(
@@ -203,7 +203,7 @@ class ASLTrainerApp:
         self.status_label.config(text="Training complete. Saving model and training details...")
 
         # Set the folder path explicitly where the model is to be saved.
-        model_dir = r"C:\Users\User\OneDrive\Documents\SignLanguageApp\TrainedBinary3Model"
+        model_dir = r"C:\Users\User\OneDrive\Documents\SignLanguageApp\TrainedBinary4Model"
         os.makedirs(model_dir, exist_ok=True)
         print("Attempting to create or access folder:", model_dir)
         try:
