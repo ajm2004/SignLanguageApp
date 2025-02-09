@@ -58,7 +58,9 @@ model_options = {
     "DenseNet121 (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary2Model/DenseNet121_model.h5",
     "V3_VGG16 (T3)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary3Model/VGG16_model.h5",
     "V4_VGG16 (T4)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary4Model/VGG16_model.h5",
-    "v4_MobileNetV2 (T4)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary4Model/MobileNetV2_model.h5"
+    "v4_MobileNetV2 (T4)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary4Model/MobileNetV2_model.h5",
+    "V5_MobileNetV2 (T5)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary5Model/MobileNetV2_model.h5",
+    "V5_VGG19 (T5)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary5Model/VGG19_model.h5"
 }
 
 # Initially load the default model
@@ -466,10 +468,13 @@ def update_frame():
                 imgWhite[:, wGap:wCal + wGap] = cv2.cvtColor(imgResize, cv2.COLOR_BGR2GRAY)
             else:
                 k = imgSize / w
-                hCal = math.ceil(k * h)
+                # Use int() to avoid rounding up.
+                hCal = int(k * h)
                 imgResize = cv2.resize(binary_result, (imgSize, hCal))
-                hGap = math.ceil((imgSize - hCal) / 2)
-                imgWhite[hGap:hCal + hGap, :] = cv2.cvtColor(imgResize, cv2.COLOR_BGR2GRAY)
+                # Use integer division for a symmetric gap.
+                hGap = (imgSize - hCal) // 2
+                # Make sure that the assignment does not exceed the canvas height.
+                imgWhite[hGap:hGap + hCal, :] = cv2.cvtColor(imgResize, cv2.COLOR_BGR2GRAY)
 
             imgWhiteRGB = cv2.cvtColor(imgWhite, cv2.COLOR_GRAY2BGR)
             prediction, index = classifier.getPrediction(imgWhiteRGB, draw=False)
