@@ -1,0 +1,35 @@
+{
+    "model_name": "MobileNetV2",
+    "epochs": 1,
+    "batch_size": 16,
+    "learning_rate": 0.001,
+    "fine_tune": false,
+    "timestamp": "2025-02-12 20:56:36",
+    "train_val_split": "Training (80%) | Validation (20%)",
+    "training_history": {
+        "loss": [
+            0.29765835404396057
+        ],
+        "accuracy": [
+            0.9277499914169312
+        ],
+        "precision": [
+            0.9760578870773315
+        ],
+        "recall": [
+            0.8765000104904175
+        ],
+        "val_loss": [
+            0.10322548449039459
+        ],
+        "val_accuracy": [
+            0.9723333120346069
+        ],
+        "val_precision": [
+            0.981701135635376
+        ],
+        "val_recall": [
+            0.965666651725769
+        ]
+    }
+}
