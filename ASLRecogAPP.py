@@ -45,6 +45,7 @@ def detect_skin(frame):
     
     return mask
 
+
 # ---------------------------
 # Initialization
 # ---------------------------
@@ -53,21 +54,21 @@ detector = HandDetector(maxHands=1)
 
 # Define model options (adjust file paths as needed)
 model_options = {
-    "MobileNetV2 (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary2Model/MobileNetV2_model.h5",
-    "VGG16 (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary2Model/VGG16_model.h5",
-    "DenseNet121 (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary2Model/DenseNet121_model.h5",
-    "V3_VGG16 (T3)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary3Model/VGG16_model.h5",
-    "V4_VGG16 (T4)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary4Model/VGG16_model.h5",
-    "v4_MobileNetV2 (T4)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary4Model/MobileNetV2_model.h5",
-    "V5_MobileNetV2 (T5)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary5Model/MobileNetV2_model.h5",
-    "V5_VGG19 (T5)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinary5Model/VGG19_model.h5"
+    "MobileNetV2 (T2)": "TrainedBinary2Model/MobileNetV2_model.h5",
+    "VGG16 (T2)": "TrainedBinary2Model/VGG16_model.h5",
+    "DenseNet121 (T2)": "TrainedBinary2Model/DenseNet121_model.h5",
+    "V3_VGG16 (T3)": "TrainedBinary3Model/VGG16_model.h5",
+    "V4_VGG16 (T4)": "TrainedBinary4Model/VGG16_model.h5",
+    "v4_MobileNetV2 (T4)": "TrainedBinary4Model/MobileNetV2_model.h5",
+    "V5_MobileNetV2 (T5)": "TrainedBinary5Model/MobileNetV2_model.h5",
+    "V5_VGG19 (T5)": "TrainedBinary5Model/VGG19_model.h5"
 }
 
 # Initially load the default model
 selected_model = "VGG16 (T2)"
 classifier = Classifier(model_options[selected_model])
 
-offset = 45
+offset = 40
 imgSize = 250
 labels = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
           "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y"]
@@ -536,13 +537,6 @@ def update_frame():
         landmarks_label.configure(image=imgCrop_tk)
     
     root.after(10, update_frame)
-
-
-
-
-
-
-
 
 # ---------------------------
 # Clean up on exit
