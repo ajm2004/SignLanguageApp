@@ -352,7 +352,7 @@ class ASLTrainerApp:
             
             # Save the model along with training details
             self.status_label.config(text=f"Training complete for {model_name}. Saving model and training details...")
-            model_dir = r"C:\Users\User\OneDrive\Documents\SignLanguageApp\TrainedBinaryTestingModel"
+            model_dir = r"C:\Users\User\OneDrive\Documents\SignLanguageApp\TrainedBinaryNewModel"
             os.makedirs(model_dir, exist_ok=True)
             self.log(f"Saving model {model_name} to folder: {model_dir}")
             model_file_name = f"{model_name}_model.h5"
@@ -558,7 +558,7 @@ class ASLTrainerApp:
             callbacks=[final_early_stopping]
         )
 
-        final_model_dir = r"C:\Users\User\OneDrive\Documents\SignLanguageApp\TrainedBinary5Model_CV"
+        final_model_dir = r"C:\Users\User\OneDrive\Documents\SignLanguageApp\TrainedBinaryNewModel_CV"
         os.makedirs(final_model_dir, exist_ok=True)
         final_model_file_name = f"{model_name}_final_model.h5"
         final_model_save_path = os.path.join(final_model_dir, final_model_file_name)
