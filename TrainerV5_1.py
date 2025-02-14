@@ -91,7 +91,7 @@ class ASLTrainerApp:
         self.use_cross_validation = BooleanVar(value=False)
         self.num_folds = IntVar(value=5)
         # New variable for model save directory (default provided)
-        self.model_save_dir = StringVar(value=r"C:\Users\User\OneDrive\Documents\SignLanguageApp\TrainedBinaryNewModel")
+        self.model_save_dir = StringVar(value=r"TrainedBinaryNewModel")
         
         # Model selection variables
         self.model_choice = StringVar(value="BasicCNN")

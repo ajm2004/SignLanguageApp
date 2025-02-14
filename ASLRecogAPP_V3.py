@@ -64,18 +64,18 @@ segmentation_module = mp_selfie_segmentation.SelfieSegmentation(model_selection=
 
 # Define model options (adjust file paths as needed)
 model_options = {
-    "MobileNetV2 (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinaryNewModel/MobileNetV2_model.h5",
-    "VGG16 (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinaryNewModel/VGG16_model.h5",
-    "DenseNet121 (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinaryNewModel/DenseNet121_model.h5",
-    "VGG19 (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinaryNewModel/VGG19_model.h5",
-    "Fusion Model (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinaryNewModel/FusionModel_model.h5",
-    "MobileNet (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinaryNewModel/MobileNet_model.h5",
-    "CNN Model (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinaryNewModel/BasicCNN_model.h5",
-    "NASNetMobile (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinaryNewModel/NASNetMobile_model.h5",
+    "MobileNetV2 (T2)": "TrainedBinaryNewModel/MobileNetV2_model.h5",
+    "VGG16 (T2)": "TrainedBinaryNewModel/VGG16_model.h5",
+    "DenseNet121 (T2)": "TrainedBinaryNewModel/DenseNet121_model.h5",
+    "VGG19 (T2)": "TrainedBinaryNewModel/VGG19_model.h5",
+    "Fusion Model (T2)": "TrainedBinaryNewModel/FusionModel_model.h5",
+    "MobileNet (T2)": "TrainedBinaryNewModel/MobileNet_model.h5",
+    # "CNN Model (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinaryNewModel/BasicCNN_model.h5",
+    "NASNetMobile (T2)": "TrainedBinaryNewModel/NASNetMobile_model.h5",
 }
 
 # Initially load the default model
-selected_model = "MobileNetV2 (T2)"
+selected_model = "MobileNet (T2)"
 classifier = Classifier(model_options[selected_model])
 
 offset = 45
@@ -275,6 +275,17 @@ selected_model_var = tk.StringVar(value=selected_model)
 auto_type_enabled_var = tk.BooleanVar(value=False)
 segmentation_enabled_var = tk.BooleanVar(value=False)
 
+def change_model(*args):
+    global classifier
+    sel = selected_model_var.get()
+    new_path = model_options[sel]
+    classifier = Classifier(new_path)
+    model_fps_label.config(text="Model: " + sel)
+    log_text.configure(state='normal')
+    log_text.insert(tk.END, f"Model changed to: {sel}\n")
+    log_text.see(tk.END)
+    log_text.configure(state='disabled')
+
 right_frame = tk.Frame(root, width=500, height=970, bg="#1f1f1f", bd=2, relief="ridge")
 right_frame.grid(row=0, column=2, sticky="nsew", padx=10, pady=10)
 right_frame.grid_propagate(False)
@@ -290,26 +301,30 @@ def open_settings():
     settings_window = tk.Toplevel(root)
     settings_window.title("Settings")
     settings_window.geometry("400x300")
-    settings_window.configure(bg="#1f1f1f")
+    settings_window.configure(bg="#1f1e1f")
     
-    tk.Label(settings_window, text="Model Selection:", font=("Segoe UI", 14), bg="#1f1f1f", fg="#ffffff").pack(pady=5)
-    model_option_menu_settings = tk.OptionMenu(settings_window, selected_model_var, *model_options.keys(), command=lambda x: change_model())
+    tk.Label(settings_window, text="Model Selection:", font=("Segoe UI", 14),
+             bg="#1e1e1f", fg="#ffffff").pack(pady=5)
+    model_option_menu_settings = tk.OptionMenu(settings_window, selected_model_var, *model_options.keys(), 
+                                               command=lambda x: change_model())
     model_option_menu_settings.config(font=("Segoe UI", 14), bg="#333333", fg="#ffffff", highlightthickness=0)
     model_option_menu_settings["menu"].config(bg="#333333", fg="#ffffff")
     model_option_menu_settings.pack(pady=5)
     
-    segmentation_check_settings = tk.Checkbutton(settings_window, text="Enable Segmentation Filter", variable=segmentation_enabled_var,
-                                                   font=("Segoe UI", 14), bg="#1f1f1f", fg="#ffffff",
-                                                   activebackground="#1f1f1f", activeforeground="#00ffff", selectcolor="#000000")
+    segmentation_check_settings = tk.Checkbutton(settings_window, text="Enable Segmentation Filter", 
+                                                   variable=segmentation_enabled_var,
+                                                   font=("Segoe UI", 14), bg="#1e1e1f", fg="#ffffff",
+                                                   activebackground="#1e1e1f", activeforeground="#00ffff", selectcolor="#000000")
     segmentation_check_settings.pack(pady=5)
     
     auto_type_check = tk.Checkbutton(settings_window, text="Enable Auto Type", variable=auto_type_enabled_var,
-                                     font=("Segoe UI", 14), bg="#1f1f1f", fg="#ffffff",
-                                     activebackground="#1f1f1f", activeforeground="#00ffff", selectcolor="#000000")
+                                     font=("Segoe UI", 14), bg="#1e1e1f", fg="#ffffff",
+                                     activebackground="#1e1e1f", activeforeground="#00ffff", selectcolor="#000000")
     auto_type_check.pack(pady=5)
     
     tk.Button(settings_window, text="Close", command=settings_window.destroy, font=("Segoe UI", 14),
               bg="#333333", fg="#00ffff").pack(pady=20)
+
 
 def open_help():
     help_text = (
