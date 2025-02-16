@@ -171,7 +171,7 @@ fps_frame_title.pack(pady=10)
 max_fps_var = tk.StringVar(value="Max FPS: 0")
 min_fps_var = tk.StringVar(value="Min FPS: 0")
 avg_fps_var = tk.StringVar(value="Avg FPS: 0")
-pred_rate_var = tk.StringVar(value="Predictions per frame: 0")
+pred_rate_var = tk.StringVar(value="PPF: 0")
 pps_var = tk.StringVar(value="PPS: 0")
 
 model_fps_label = tk.Label(fps_frame, text="Model: " + selected_model, font=("Segoe UI", 14),
