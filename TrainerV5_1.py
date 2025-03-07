@@ -91,7 +91,7 @@ class ASLTrainerApp:
         self.use_cross_validation = BooleanVar(value=False)
         self.num_folds = IntVar(value=5)
         # New variable for model save directory (default provided)
-        self.model_save_dir = StringVar(value=r"TrainedBinaryNewModel")
+        self.model_save_dir = StringVar(value=r"TrainedBinaryNonLandMarkNewModel")
         
         # Model selection variables
         self.model_choice = StringVar(value="BasicCNN")
@@ -791,12 +791,21 @@ class ASLTrainerApp:
             self.time_label.after(0, lambda: self.time_label.config(text=f"Estimated Time Remaining: {int(est_remaining)} sec"))
             elapsed = time.time() - self.training_start_time
             self.elapsed_label.after(0, lambda: self.elapsed_label.config(text=f"Time Elapsed: {int(elapsed)} sec"))
+            # Update progress label (if desired)
             text = (f"Epoch {epoch + 1}/{self.total_epochs}\n"
                     f"Training Acc: {logs.get('accuracy', 0):.4f}, Loss: {logs.get('loss', 0):.4f}\n"
                     f"Validation Acc: {logs.get('val_accuracy', 0):.4f}, Loss: {logs.get('val_loss', 0):.4f}")
             self.progress_label.after(0, lambda: self.progress_label.config(text=text))
+            # NEW: Log completed epoch with its metrics in the training log box
+            epoch_message = (
+                f"Completed Epoch {epoch + 1}/{self.total_epochs}: "
+                f"Training Acc: {logs.get('accuracy', 0):.4f}, Loss: {logs.get('loss', 0):.4f}; "
+                f"Validation Acc: {logs.get('val_accuracy', 0):.4f}, Loss: {logs.get('val_loss', 0):.4f}"
+            )
+            self.progress_label.after(0, lambda: self.log_callback(epoch_message))
             if self.stop_event.is_set():
                 self.model.stop_training = True
+
 
 if __name__ == "__main__":
     print("Available GPU devices:", tf.config.list_physical_devices('GPU'))

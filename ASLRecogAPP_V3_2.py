@@ -91,6 +91,7 @@ model_options = {
     "MobileNet (T2)": "TrainedBinaryNewModel/MobileNet_model.h5",
     # "CNN Model (T2)": "C:/Users/User/OneDrive/Documents/SignLanguageApp/TrainedBinaryNewModel/BasicCNN_model.h5",
     "NASNetMobile (T2)": "TrainedBinaryNewModel/NASNetMobile_model.h5",
+    "MultiScaleAttentionalCNN (T2)": "TrainedBinaryNewModel/MultiScaleAttentionalCNN_model.h5",
 }
 
 # Initially load the default model
