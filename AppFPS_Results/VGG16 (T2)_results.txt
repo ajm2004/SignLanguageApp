@@ -1,0 +1,48 @@
+Device Info:
+CPU: Intel64 Family 6 Model 186 Stepping 2, GenuineIntel (20 cores)
+GPU: Not available
+Memory: 5.9GB free / 15.6GB total
+----------
+2025-03-14 05:56:24 - Max FPS: 12.95, Min FPS: 1.04, Avg FPS: 8.15, Predictions per frame: 0.00, PPS: 0
+2025-03-14 05:56:25 - Max FPS: 16.85, Min FPS: 9.83, Avg FPS: 13.45, Predictions per frame: 0.00, PPS: 0
+2025-03-14 05:56:26 - Max FPS: 13.37, Min FPS: 1.39, Avg FPS: 10.54, Predictions per frame: 0.20, PPS: 1
+2025-03-14 05:56:27 - Max FPS: 15.39, Min FPS: 2.78, Avg FPS: 6.01, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:28 - Max FPS: 4.58, Min FPS: 4.05, Avg FPS: 4.31, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:30 - Max FPS: 4.55, Min FPS: 3.97, Avg FPS: 4.36, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:31 - Max FPS: 4.56, Min FPS: 3.68, Avg FPS: 4.26, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:32 - Max FPS: 4.58, Min FPS: 4.00, Avg FPS: 4.41, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:33 - Max FPS: 4.55, Min FPS: 4.40, Avg FPS: 4.47, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:34 - Max FPS: 4.68, Min FPS: 4.08, Avg FPS: 4.46, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:35 - Max FPS: 4.59, Min FPS: 3.99, Avg FPS: 4.40, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:36 - Max FPS: 4.65, Min FPS: 2.25, Avg FPS: 3.99, Predictions per frame: 1.00, PPS: 4
+2025-03-14 05:56:38 - Max FPS: 4.69, Min FPS: 3.46, Avg FPS: 4.27, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:39 - Max FPS: 4.55, Min FPS: 4.20, Avg FPS: 4.39, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:40 - Max FPS: 4.66, Min FPS: 4.21, Avg FPS: 4.48, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:41 - Max FPS: 4.57, Min FPS: 4.22, Avg FPS: 4.41, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:42 - Max FPS: 4.76, Min FPS: 4.37, Avg FPS: 4.51, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:43 - Max FPS: 4.50, Min FPS: 4.08, Avg FPS: 4.30, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:44 - Max FPS: 4.73, Min FPS: 4.06, Avg FPS: 4.49, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:46 - Max FPS: 4.53, Min FPS: 3.92, Avg FPS: 4.34, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:47 - Max FPS: 4.61, Min FPS: 4.17, Avg FPS: 4.42, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:48 - Max FPS: 4.75, Min FPS: 3.99, Avg FPS: 4.51, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:49 - Max FPS: 13.78, Min FPS: 3.94, Avg FPS: 6.08, Predictions per frame: 0.80, PPS: 4
+2025-03-14 05:56:50 - Max FPS: 4.56, Min FPS: 4.10, Avg FPS: 4.42, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:51 - Max FPS: 20.83, Min FPS: 4.18, Avg FPS: 7.03, Predictions per frame: 0.83, PPS: 5
+2025-03-14 05:56:52 - Max FPS: 4.67, Min FPS: 4.33, Avg FPS: 4.51, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:53 - Max FPS: 4.55, Min FPS: 4.30, Avg FPS: 4.44, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:55 - Max FPS: 4.65, Min FPS: 4.13, Avg FPS: 4.38, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:56 - Max FPS: 4.55, Min FPS: 3.92, Avg FPS: 4.37, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:57 - Max FPS: 4.77, Min FPS: 4.26, Avg FPS: 4.50, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:58 - Max FPS: 4.56, Min FPS: 4.26, Avg FPS: 4.44, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:56:59 - Max FPS: 4.61, Min FPS: 4.35, Avg FPS: 4.49, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:57:00 - Max FPS: 4.74, Min FPS: 4.41, Avg FPS: 4.55, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:57:01 - Max FPS: 4.52, Min FPS: 4.28, Avg FPS: 4.40, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:57:02 - Max FPS: 4.56, Min FPS: 4.22, Avg FPS: 4.45, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:57:04 - Max FPS: 4.51, Min FPS: 4.18, Avg FPS: 4.36, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:57:05 - Max FPS: 4.61, Min FPS: 4.29, Avg FPS: 4.52, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:57:06 - Max FPS: 4.51, Min FPS: 4.08, Avg FPS: 4.30, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:57:07 - Max FPS: 4.55, Min FPS: 3.72, Avg FPS: 4.30, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:57:08 - Max FPS: 4.49, Min FPS: 4.27, Avg FPS: 4.41, Predictions per frame: 1.00, PPS: 5
+2025-03-14 05:57:09 - Max FPS: 4.71, Min FPS: 3.95, Avg FPS: 4.35, Predictions per frame: 0.80, PPS: 4
+2025-03-14 05:57:10 - Max FPS: 16.79, Min FPS: 12.05, Avg FPS: 14.97, Predictions per frame: 0.00, PPS: 0
+2025-03-14 05:57:11 - Max FPS: 18.64, Min FPS: 12.47, Avg FPS: 15.10, Predictions per frame: 0.00, PPS: 0
