@@ -1,0 +1,50 @@
+Device Info:
+CPU: Intel64 Family 6 Model 183 Stepping 1, GenuineIntel (28 cores)
+GPU: NVIDIA GeForce RTX 4070 SUPER
+Memory: 6.2GB free / 31.8GB total
+----------
+2025-03-19 21:40:12 - Max FPS: 34.46, Min FPS: 0.62, Avg FPS: 25.68, Predictions per frame: 0.10, PPS: 1
+2025-03-19 21:40:12 - Max FPS: 35.71, Min FPS: 1.13, Avg FPS: 16.07, Predictions per frame: 0.67, PPS: 2
+2025-03-19 21:40:13 - Max FPS: 13.16, Min FPS: 9.77, Avg FPS: 12.53, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:14 - Max FPS: 33.90, Min FPS: 9.59, Avg FPS: 14.12, Predictions per frame: 0.93, PPS: 13
+2025-03-19 21:40:15 - Max FPS: 13.42, Min FPS: 8.57, Avg FPS: 12.50, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:16 - Max FPS: 13.12, Min FPS: 9.56, Avg FPS: 12.46, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:18 - Max FPS: 13.31, Min FPS: 8.31, Avg FPS: 12.53, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:19 - Max FPS: 13.21, Min FPS: 9.58, Avg FPS: 12.58, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:20 - Max FPS: 13.44, Min FPS: 8.40, Avg FPS: 12.48, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:21 - Max FPS: 13.24, Min FPS: 9.66, Avg FPS: 12.51, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:22 - Max FPS: 13.52, Min FPS: 9.69, Avg FPS: 12.63, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:23 - Max FPS: 13.28, Min FPS: 9.49, Avg FPS: 12.52, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:24 - Max FPS: 13.20, Min FPS: 9.73, Avg FPS: 12.49, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:25 - Max FPS: 13.16, Min FPS: 9.32, Avg FPS: 12.61, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:26 - Max FPS: 13.49, Min FPS: 9.32, Avg FPS: 12.55, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:27 - Max FPS: 13.97, Min FPS: 9.77, Avg FPS: 12.53, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:28 - Max FPS: 13.34, Min FPS: 9.65, Avg FPS: 12.47, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:29 - Max FPS: 13.22, Min FPS: 9.70, Avg FPS: 12.64, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:30 - Max FPS: 13.33, Min FPS: 9.56, Avg FPS: 12.37, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:31 - Max FPS: 13.09, Min FPS: 9.59, Avg FPS: 12.56, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:32 - Max FPS: 13.10, Min FPS: 9.48, Avg FPS: 12.52, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:33 - Max FPS: 13.33, Min FPS: 9.66, Avg FPS: 12.36, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:34 - Max FPS: 13.29, Min FPS: 9.73, Avg FPS: 12.53, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:35 - Max FPS: 13.15, Min FPS: 9.64, Avg FPS: 12.35, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:36 - Max FPS: 13.26, Min FPS: 9.63, Avg FPS: 12.55, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:37 - Max FPS: 13.16, Min FPS: 9.60, Avg FPS: 12.43, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:38 - Max FPS: 13.75, Min FPS: 9.86, Avg FPS: 12.46, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:39 - Max FPS: 13.31, Min FPS: 8.40, Avg FPS: 12.54, Predictions per frame: 0.92, PPS: 12
+2025-03-19 21:40:41 - Max FPS: 34.19, Min FPS: 9.42, Avg FPS: 14.10, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:42 - Max FPS: 37.88, Min FPS: 8.19, Avg FPS: 27.35, Predictions per frame: 0.20, PPS: 5
+2025-03-19 21:40:43 - Max FPS: 13.60, Min FPS: 9.51, Avg FPS: 12.28, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:44 - Max FPS: 13.08, Min FPS: 9.59, Avg FPS: 12.49, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:45 - Max FPS: 13.38, Min FPS: 5.50, Avg FPS: 12.24, Predictions per frame: 1.00, PPS: 12
+2025-03-19 21:40:46 - Max FPS: 13.75, Min FPS: 9.61, Avg FPS: 12.49, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:47 - Max FPS: 13.51, Min FPS: 9.58, Avg FPS: 12.60, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:48 - Max FPS: 13.11, Min FPS: 9.73, Avg FPS: 12.56, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:49 - Max FPS: 13.22, Min FPS: 9.69, Avg FPS: 12.38, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:50 - Max FPS: 13.29, Min FPS: 9.50, Avg FPS: 12.49, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:51 - Max FPS: 13.07, Min FPS: 9.62, Avg FPS: 12.53, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:52 - Max FPS: 13.07, Min FPS: 9.75, Avg FPS: 12.29, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:53 - Max FPS: 13.21, Min FPS: 9.74, Avg FPS: 12.54, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:54 - Max FPS: 32.79, Min FPS: 9.52, Avg FPS: 22.49, Predictions per frame: 0.40, PPS: 8
+2025-03-19 21:40:55 - Max FPS: 13.79, Min FPS: 9.43, Avg FPS: 12.29, Predictions per frame: 1.00, PPS: 13
+2025-03-19 21:40:56 - Max FPS: 33.78, Min FPS: 8.26, Avg FPS: 17.12, Predictions per frame: 0.67, PPS: 10
+2025-03-19 21:40:57 - Max FPS: 32.21, Min FPS: 8.53, Avg FPS: 15.47, Predictions per frame: 0.79, PPS: 11

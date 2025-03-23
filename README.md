@@ -1,3 +1,2 @@
 # SignLanguageApp
 
-To Be Completed

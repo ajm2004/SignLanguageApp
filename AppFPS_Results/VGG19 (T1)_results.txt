@@ -1,0 +1,23 @@
+Device Info:
+CPU: Intel64 Family 6 Model 183 Stepping 1, GenuineIntel (28 cores)
+GPU: NVIDIA GeForce RTX 4070 SUPER
+Memory: 7.0GB free / 31.8GB total
+----------
+2025-03-19 21:35:38 - Max FPS: 36.36, Min FPS: 3.71, Avg FPS: 29.11, Predictions per frame: 0.00, PPS: 0
+2025-03-19 21:35:39 - Max FPS: 33.05, Min FPS: 7.10, Avg FPS: 25.83, Predictions per frame: 0.27, PPS: 6
+2025-03-19 21:35:40 - Max FPS: 16.39, Min FPS: 9.77, Avg FPS: 15.29, Predictions per frame: 1.00, PPS: 16
+2025-03-19 21:35:41 - Max FPS: 16.40, Min FPS: 11.42, Avg FPS: 15.21, Predictions per frame: 1.00, PPS: 16
+2025-03-19 21:35:42 - Max FPS: 16.44, Min FPS: 12.87, Avg FPS: 15.11, Predictions per frame: 1.00, PPS: 15
+2025-03-19 21:35:43 - Max FPS: 16.53, Min FPS: 11.24, Avg FPS: 15.43, Predictions per frame: 1.00, PPS: 16
+2025-03-19 21:35:44 - Max FPS: 16.54, Min FPS: 11.16, Avg FPS: 15.72, Predictions per frame: 1.00, PPS: 16
+2025-03-19 21:35:45 - Max FPS: 16.14, Min FPS: 9.53, Avg FPS: 14.85, Predictions per frame: 1.00, PPS: 15
+2025-03-19 21:35:46 - Max FPS: 16.17, Min FPS: 11.60, Avg FPS: 14.80, Predictions per frame: 1.00, PPS: 15
+2025-03-19 21:35:47 - Max FPS: 16.47, Min FPS: 11.56, Avg FPS: 15.04, Predictions per frame: 1.00, PPS: 15
+2025-03-19 21:35:48 - Max FPS: 16.20, Min FPS: 11.10, Avg FPS: 14.13, Predictions per frame: 1.00, PPS: 14
+2025-03-19 21:35:49 - Max FPS: 16.39, Min FPS: 9.73, Avg FPS: 15.21, Predictions per frame: 1.00, PPS: 16
+2025-03-19 21:35:50 - Max FPS: 16.11, Min FPS: 11.26, Avg FPS: 14.75, Predictions per frame: 1.00, PPS: 15
+2025-03-19 21:35:51 - Max FPS: 16.12, Min FPS: 10.77, Avg FPS: 14.57, Predictions per frame: 1.00, PPS: 15
+2025-03-19 21:35:52 - Max FPS: 16.47, Min FPS: 11.23, Avg FPS: 15.29, Predictions per frame: 1.00, PPS: 16
+2025-03-19 21:35:53 - Max FPS: 37.04, Min FPS: 15.80, Avg FPS: 30.36, Predictions per frame: 0.03, PPS: 1
+2025-03-19 21:35:54 - Max FPS: 35.71, Min FPS: 20.10, Avg FPS: 30.09, Predictions per frame: 0.00, PPS: 0
+2025-03-19 21:35:56 - Max FPS: 34.46, Min FPS: 13.91, Avg FPS: 31.19, Predictions per frame: 0.00, PPS: 0
