@@ -12,6 +12,7 @@ import pyttsx3  # for text-to-speech
 import os  # for creating directories and saving files
 import psutil  # for resource usage info
 import platform
+from tkinter import font as tkfont
 try:
     import GPUtil
 except ImportError:
@@ -22,6 +23,32 @@ try:
     resample_method = Image.Resampling.LANCZOS
 except AttributeError:
     resample_method = Image.ANTIALIAS
+
+# -------------------------------------------------
+# Helper: Responsive‑UI scaling factors
+# -------------------------------------------------
+BASE_WIDTH, BASE_HEIGHT = 2100, 970  # original design size
+root = tk.Tk()
+root.update_idletasks()  # ensure winfo_screen* works on all platforms
+SCREEN_W, SCREEN_H = root.winfo_screenwidth(), root.winfo_screenheight()
+SCALE = min(SCREEN_W / BASE_WIDTH, SCREEN_H / BASE_HEIGHT, 1.0)
+
+def s(val: int) -> int:
+    """Scale helper for dimensions (int only)."""
+    return int(val * SCALE)
+
+# optional: scale all default fonts generically (points/72 inch)
+root.tk.call('tk', 'scaling', SCALE)
+
+# global font factory – keeps original relative sizing
+FONT_CACHE = {}
+
+def F(size: int, weight: str = "normal"):
+    key = (size, weight)
+    if key not in FONT_CACHE:
+        FONT_CACHE[key] = tkfont.Font(family="Segoe UI", size=s(size), weight=weight)
+    return FONT_CACHE[key]
+
 
 # ---------------------------
 # Ensemble Classifier Definition
@@ -140,11 +167,12 @@ auto_type_last_prediction = None
 # ---------------------------
 # Tkinter UI Setup (Improved)
 # ---------------------------
-root = tk.Tk()
 root.title("ASL - Fingerspelling Recognition")
-# Increase overall window height to accommodate additional content
-root.geometry("2100x970")
+root.geometry(f"{s(BASE_WIDTH)}x{s(BASE_HEIGHT)}")
 root.configure(bg="#1e1e1e")
+root.minsize(s(900), s(600))  # reasonable minimum
+
+
 
 # ---------------------------
 # Global variables for Pronunciation Accent (pyttsx3)
@@ -158,23 +186,20 @@ for voice in available_voices:
 default_voice_name = list(voice_dict.keys())[0] if voice_dict else ""
 selected_voice_var = tk.StringVar(value=default_voice_name)
 
-# Configure grid layout for the root window
+# grid stretch in root
+for col in range(3):
+    root.grid_columnconfigure(col, weight=1 if col == 1 else 0)
 root.grid_rowconfigure(0, weight=1)
-root.grid_columnconfigure(0, weight=0)
-root.grid_columnconfigure(1, weight=1)
-root.grid_columnconfigure(2, weight=0)
 
 # ---------------------------
 # Menubar (New)
 # ---------------------------
-menubar = tk.Menu(root, bg="#2c2f33", fg="#ffffff")
-# File Menu
-file_menu = tk.Menu(menubar, tearoff=0, bg="#2c2f33", fg="#ffffff")
+menubar = tk.Menu(root, bg="#2c2f33", fg="#ffffff", font=F(10))
+file_menu = tk.Menu(menubar, tearoff=0, bg="#2c2f33", fg="#ffffff", font=F(10))
 file_menu.add_command(label="Exit", command=root.quit)
 menubar.add_cascade(label="File", menu=file_menu)
-# Help Menu
-help_menu = tk.Menu(menubar, tearoff=0, bg="#2c2f33", fg="#ffffff")
-help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About", "ASL Fingerspelling Recognition App\nDeveloped with OpenCV, MediaPipe, and Tkinter"))
+help_menu = tk.Menu(menubar, tearoff=0, bg="#2c2f33", fg="#ffffff", font=F(10))
+help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About", "ASL Fingerspelling Recognition App\nOpenCV, MediaPipe, Tkinter"))
 menubar.add_cascade(label="Help", menu=help_menu)
 root.config(menu=menubar)
 
@@ -199,68 +224,32 @@ root.after(2000, close_splash)  # Show main UI after 2 seconds
 # ---------------------------
 # Left Panel: Performance Metrics, Resource Info, and Log
 # ---------------------------
-fps_frame = tk.Frame(root, width=500, height=900, bg="#2c2f33", bd=2, relief="ridge")
-fps_frame.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
+fps_frame = tk.Frame(root, width=s(500), height=s(900), bg="#2c2f33", bd=2, relief="ridge")
+fps_frame.grid(row=0, column=0, sticky="nsew", padx=s(6), pady=s(6))
 fps_frame.grid_propagate(False)
 
-fps_frame_title = tk.Label(fps_frame, text="Performance Metrics", font=("Segoe UI", 18, "bold"),
-                           bg="#2c2f33", fg="#00ffff")
-fps_frame_title.pack(pady=10)
+fps_frame_title = tk.Label(fps_frame, text="Performance Metrics", font=F(18, "bold"), bg="#2c2f33", fg="#00ffff")
+fps_frame_title.pack(pady=s(6))
 
-# FPS info labels
-max_fps_var = tk.StringVar(value="Max FPS: 0")
-min_fps_var = tk.StringVar(value="Min FPS: 0")
-avg_fps_var = tk.StringVar(value="Avg FPS: 0")
-pred_rate_var = tk.StringVar(value="PPF: 0")
-pps_var = tk.StringVar(value="PPS: 0")
+max_fps_var, min_fps_var, avg_fps_var = tk.StringVar(), tk.StringVar(), tk.StringVar()
+pred_rate_var, pps_var = tk.StringVar(), tk.StringVar()
 
-model_fps_label = tk.Label(fps_frame, text="Model: " + selected_model, font=("Segoe UI", 14),
-                           bg="#2c2f33", fg="#00ff00")
-model_fps_label.pack(pady=5)
+model_fps_label = tk.Label(fps_frame, text=f"Model: {selected_model}", font=F(14), bg="#2c2f33", fg="#00ff00")
+model_fps_label.pack(pady=s(4))
 
-max_fps_label = tk.Label(fps_frame, textvariable=max_fps_var, font=("Segoe UI", 14),
-                         bg="#2c2f33", fg="#ffffff")
-max_fps_label.pack(pady=5)
-
-min_fps_label = tk.Label(fps_frame, textvariable=min_fps_var, font=("Segoe UI", 14),
-                         bg="#2c2f33", fg="#ffffff")
-min_fps_label.pack(pady=5)
-
-avg_fps_label = tk.Label(fps_frame, textvariable=avg_fps_var, font=("Segoe UI", 14),
-                         bg="#2c2f33", fg="#ffffff")
-avg_fps_label.pack(pady=5)
-
-pred_rate_label = tk.Label(fps_frame, textvariable=pred_rate_var, font=("Segoe UI", 14),
-                           bg="#2c2f33", fg="#ffffff")
-pred_rate_label.pack(pady=5)
-
-pps_label = tk.Label(fps_frame, textvariable=pps_var, font=("Segoe UI", 14),
-                     bg="#2c2f33", fg="#ffffff")
-pps_label.pack(pady=5)
+for var in (max_fps_var, min_fps_var, avg_fps_var, pred_rate_var, pps_var):
+    tk.Label(fps_frame, textvariable=var, font=F(14), bg="#2c2f33", fg="#ffffff").pack(pady=s(2))
 
 # Resource Info Section
 resource_frame = tk.Frame(fps_frame, bg="#2c2f33")
-resource_frame.pack(pady=20)
+resource_frame.pack(pady=s(10))
+resource_title = tk.Label(resource_frame, text="Resource Info", font=F(16, "bold"), bg="#2c2f33", fg="#ffcc00")
+resource_title.pack(pady=s(4))
 
-resource_title = tk.Label(resource_frame, text="Resource Info", font=("Segoe UI", 16, "bold"),
-                          bg="#2c2f33", fg="#ffcc00")
-resource_title.pack(pady=5)
 
-cpu_info_var = tk.StringVar(value="CPU: Loading...")
-gpu_info_var = tk.StringVar(value="GPU: Loading...")
-memory_info_var = tk.StringVar(value="Memory: Loading...")
-
-cpu_info_label = tk.Label(resource_frame, textvariable=cpu_info_var, font=("Segoe UI", 12),
-                          bg="#2c2f33", fg="#ffffff")
-cpu_info_label.pack(pady=2)
-
-gpu_info_label = tk.Label(resource_frame, textvariable=gpu_info_var, font=("Segoe UI", 12),
-                          bg="#2c2f33", fg="#ffffff")
-gpu_info_label.pack(pady=2)
-
-memory_info_label = tk.Label(resource_frame, textvariable=memory_info_var, font=("Segoe UI", 12),
-                             bg="#2c2f33", fg="#ffffff")
-memory_info_label.pack(pady=2)
+cpu_info_var, gpu_info_var, memory_info_var = tk.StringVar(), tk.StringVar(), tk.StringVar()
+for var in (cpu_info_var, gpu_info_var, memory_info_var):
+    tk.Label(resource_frame, textvariable=var, font=F(12), bg="#2c2f33", fg="#ffffff").pack(pady=s(1))
 
 def update_resource_info():
     # CPU Info
@@ -292,18 +281,15 @@ def update_resource_info():
 update_resource_info()
 
 # Log box
-log_text = scrolledtext.ScrolledText(fps_frame, width=40, height=10,
-                                       bg="#23272a", fg="#ffffff", font=("Segoe UI", 12))
-log_text.pack(pady=10, fill="both", expand=True)
-log_text.configure(state='disabled')
-
+log_text = scrolledtext.ScrolledText(fps_frame, bg="#23272a", fg="#ffffff", font=F(11))
+log_text.pack(padx=s(4), pady=s(6), fill="both", expand=True)
+log_text.configure(state="disabled")
 # ---------------------------
 # Center Panel: Main Camera Feed
 # ---------------------------
-left_frame = tk.Frame(root, width=900, height=900, bg="#141414", bd=2, relief="ridge")
-left_frame.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
+left_frame = tk.Frame(root, width=s(900), height=s(900), bg="#141414", bd=2, relief="ridge")
+left_frame.grid(row=0, column=1, sticky="nsew", padx=s(6), pady=s(6))
 left_frame.grid_propagate(False)
-
 main_image_label = tk.Label(left_frame, bg="#141414")
 main_image_label.place(relwidth=1, relheight=1)
 
@@ -331,15 +317,13 @@ def update_classifier_global():
 def change_model(*args):
     update_classifier_global()
 
-right_frame = tk.Frame(root, width=500, height=970, bg="#1f1e1f", bd=2, relief="ridge")
-right_frame.grid(row=0, column=2, sticky="nsew", padx=10, pady=10)
+right_frame = tk.Frame(root, width=s(500), height=s(900), bg="#1f1e1f", bd=2, relief="ridge")
+right_frame.grid(row=0, column=2, sticky="nsew", padx=s(6), pady=s(6))
 right_frame.grid_propagate(False)
 right_frame.grid_columnconfigure(0, weight=1)
 
-# Header (Centered)
-header_label = tk.Label(right_frame, text="ASL Fingerspelling Recognition", font=("Segoe UI", 20, "bold"),
-                        bg="#1e1e1f", fg="#00ffff", anchor="center")
-header_label.grid(row=0, column=0, pady=(15, 10), sticky="ew")
+header_label = tk.Label(right_frame, text="ASL Fingerspelling Recognition", font=F(20, "bold"), bg="#1e1e1f", fg="#00ffff")
+header_label.grid(row=0, column=0, pady=(s(10), s(6)), sticky="ew")
 
 # Top Buttons Frame: Settings and Help
 def open_settings():
